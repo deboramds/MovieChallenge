@@ -1,13 +1,11 @@
 import { useState, createContext, useEffect } from "react";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth"; 
+import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth"; 
 import { app } from '../services/firebaseConfig'; 
 import { Navigate } from "react-router-dom";
 
 const provider = new GoogleAuthProvider();
 
 export const AuthGoogleContext = createContext({});
-
-
 
 export const AuthGoogleProvider = ({ children }) => {
     const auth = getAuth(app);
@@ -18,11 +16,11 @@ export const AuthGoogleProvider = ({ children }) => {
             const sessionToken = sessionStorage.getItem("@AuthFirebase:token");
             const sessionUser = sessionStorage.getItem("@AuthFirebase:user");
             if(sessionToken && sessionUser) {
-                setUser(sessionUser);
+                setUser(JSON.parse(sessionUser)); // Parse the user object
             }
         };
         loadStorageAuth();
-    },[])
+    },[]);
 
     const signInGoogle = () => {   
         signInWithPopup(auth, provider)
@@ -30,8 +28,8 @@ export const AuthGoogleProvider = ({ children }) => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
                 const user = result.user;
-                setUser(user)
-                sessionStorage.setItem("@AuthFirebase:Token", token)
+                setUser(user);
+                sessionStorage.setItem("@AuthFirebase:Token", token);
                 sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user));
             })
             .catch((error) => {
@@ -42,16 +40,22 @@ export const AuthGoogleProvider = ({ children }) => {
             });
     };
 
-    function signeOut() {
-        sessionStorage.clear()
-        setUser(null);
-        return <Navigate to='/' />;
-    }
+    const signOutUser = () => {
+        signOut(auth)
+            .then(() => {
+                sessionStorage.clear();
+                setUser(null);
+            })
+            .catch((error) => {
+                // Handle error, if needed
+            });
+    };
 
     return (
         <AuthGoogleContext.Provider
-            value={{ signInGoogle, signed: !!user, user, signeOut}}>
-                {children}
+            value={{ signInGoogle, signOutUser, signed: !!user, user }}
+        >
+            {children}
         </AuthGoogleContext.Provider>
-    )
+    );
 };

@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+}
+
+h1 {
+    color: #ffff;
+}
+
+.poster-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .poster-container img {
+    margin: 10px;
+    width: 200px;
+    height: 300px;
+  }
+  
