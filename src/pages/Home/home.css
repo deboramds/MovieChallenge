@@ -3,19 +3,26 @@ body{
 }
 
 h1 {
-    color: #ffff;
+    color: rgb(235, 31, 65);
 }
 
 .poster-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 1rem;
   }
   
-  .poster-container img {
-    margin: 10px;
-    width: 200px;
+  .poster {
+    width: 300px;
     height: 300px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
   }
+  
+  .selected {
+    transform: scale(1.5); /* Define o tamanho maior para o poster clicado */
+  }
+  
+  
   

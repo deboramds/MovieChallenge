@@ -1,7 +1,70 @@
 body{
-    background-color: black;
+    background-color:#0F0C0C;
 }
 
 h1 {
     color: #ffff;
+}
+
+/* login.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
+
+
+/* Estilo para os inputs */
+.card input {
+  background-color: #101010;
+  color: #554a4a;
+  font-family: lusitana;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #521E43;
+}
+
+.buttonEnter {
+  margin-top: 7px;
+  margin-left: 110px;
+  text-align: center;
+  color: #ffff;
+  font-family: lusitana;
+  width: 87px;
+  height: 21px;
+  position: absolute;
+  background-color: #7C294B;
+  border: 1px solid #521E43;
+}
+
+
+.buttonGoogle {
+  margin-top: 60px;
+  font-family: lusitana;
+  padding: 16px;
+  border: 1px solid #521E43;
+  background-color: #101010;
+  width: 319px;
+  height: 9px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
 }
