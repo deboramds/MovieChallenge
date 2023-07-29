@@ -10,6 +10,7 @@ h1 {
 .container-init {
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 
 }
 
@@ -36,10 +37,10 @@ h1 {
 }
 
 .card {
-  
-  padding: 40px;
+  margin-top: -200px;
   width: 300px;
   height: 400px;
+  margin-right: 47px;
 }
 
 
@@ -73,6 +74,10 @@ h1 {
 
 
 .buttonGoogle {
+  background-image: url('images/icon-google.png');
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-position: 70px center;
   margin-top: 60px;
   font-family: lusitana;
   padding: 16px;

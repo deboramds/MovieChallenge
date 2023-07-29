@@ -24,7 +24,7 @@ export const Login = () => {
           <figure className="logo">
           {/* <img src="Login/images/logo.jpg"></img> */}
             </figure>
-          <input type="email" placeholder="Email" />
+          <input type="email" placeholder="Email ou usuário" />
           <input type="password" placeholder="Senha" /> 
           <button className="buttonEnter">Entrar</button>
           <div className="buttons-area">
