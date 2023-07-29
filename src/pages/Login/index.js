@@ -12,9 +12,18 @@ export const Login = () => {
 
   if (!signed) {
     return (
-   <div className="container-init">
+      <div className="container-init">
+      <div className="container-left">
+          <figure>
+
+          </figure>
+        </div>
+   <div className="container-right">
       <div className="login-container">
         <div className="card">
+          <figure className="logo">
+          {/* <img src="Login/images/logo.jpg"></img> */}
+            </figure>
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Senha" /> 
           <button className="buttonEnter">Entrar</button>
@@ -23,6 +32,7 @@ export const Login = () => {
         </div>
       </div>
       </div>
+   </div>
    </div>
     );
   } else {
